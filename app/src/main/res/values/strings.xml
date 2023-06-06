@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Capstone Project Ngirit</string>
+    <string name="biaya">Biaya</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="welcome">Selamat Datang,</string>
+    <string name="sambutan">Silakan cari makanan sesuai dengan biaya Anda.</string>
+    <string name="email">Email</string>
+    <string name="nama">Name</string>
+    <string name="password">Password</string>
+    <string name="warning">Pastikan data yang anda isi sudah benar</string>
+    <string name="login">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="warning_register">Isi Data Diri Dengan Lengkap</string>
+    <string name="cari_remokendasi">Cari rekomendasi</string>
+    <string name="kategori">Kategori</string>
+    <string name="ayam"> Ayam</string>
+    <string name="ikan"> Ikan</string>
+    <string name="sayur"> Sayur</string>
+    <string name="minuman">Minuman</string>
+    <string name="ngirit">NGIRIT</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="food_name">Nama makanan</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="recomendation">Rekomendasi</string>
+    <string name="no_account">Belum memiliki akun? Silakan</string>
+    <string name="maps">Maps</string>
+    <string name="more">More</string>
+    <string name="logout">Logout</string>
+</resources>
