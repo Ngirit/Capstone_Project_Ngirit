@@ -2,27 +2,65 @@ package com.example.capstoneprojectngirit.register
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import com.example.capstoneprojectngirit.R
 import com.example.capstoneprojectngirit.databinding.ActivityRegisterBinding
+import com.example.capstoneprojectngirit.login.LoginActivity
 import kotlin.math.log
 
 class RegisterActivity : AppCompatActivity() {
     private val binding by lazy(LazyThreadSafetyMode.NONE){
         ActivityRegisterBinding.inflate(layoutInflater)
     }
+    private lateinit var registerViewModel:RegisterViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
+        setupViewModel()
         setupRegisterButton()
         playAnimation()
 
+    }
+
+    private fun setupViewModel(){
+        registerViewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+        registerViewModel.isLoading.observe(this){showLoading(it)}
+    }
+
+    private fun register(){
+        val username = binding.edName.text.toString().trim()
+        val email = binding.edEmail.text.toString().trim()
+        val password = binding.edPassword.text.toString().trim()
+
+        when{
+            username.isEmpty()->{
+                binding.edLayoutName.error = getString(R.string.name_alert)
+            }
+            email.isEmpty()->{
+                binding.edLayoutEmail.error = getString(R.string.email_alert)
+            }
+            password.isEmpty()->{
+                binding.edLayoutName.error = getString(R.string.password_alert)
+            }
+            else->{
+                if (binding.edLayoutPassword.error.isNullOrEmpty()){
+                    registerViewModel.register(username, email, password)
+
+                    val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+        }
     }
 
     private fun setupRegisterButton(){

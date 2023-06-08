@@ -26,4 +26,7 @@
     <string name="maps">Maps</string>
     <string name="more">More</string>
     <string name="logout">Logout</string>
+    <string name="name_alert">Nama tidak boleh kosong</string>
+    <string name="email_alert">Email tidak boleh kosong</string>
+    <string name="password_alert">Password minimal 8 karakter</string>
 </resources>
