@@ -27,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
 
         setupViewModel()
         setupRegisterButton()
+        buttonAction()
         playAnimation()
 
     }
@@ -83,6 +84,14 @@ class RegisterActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun buttonAction(){
+        binding.btRegister.setOnClickListener {
+            register()
+            val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun showLoading(isLoading:Boolean){

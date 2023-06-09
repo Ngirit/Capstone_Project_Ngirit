@@ -29,4 +29,6 @@
     <string name="name_alert">Nama tidak boleh kosong</string>
     <string name="email_alert">Email tidak boleh kosong</string>
     <string name="password_alert">Password minimal 8 karakter</string>
+    <string name="next">Next</string>
+    <string name="login_success">Login sukses</string>
 </resources>

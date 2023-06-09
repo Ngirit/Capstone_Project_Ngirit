@@ -5,12 +5,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.capstoneprojectngirit.api.ApiConfig
-import com.example.capstoneprojectngirit.response.RegisterResponse
+import com.example.capstoneprojectngirit.response.Data
+import com.example.capstoneprojectngirit.response.RegisterResponseCadangan
+import com.example.capstoneprojectngirit.response.RegisteringResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterViewModel:ViewModel() {
+    private val _data = MutableLiveData<Data>()
+    val data:LiveData<Data> = _data
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean> = _isLoading
 
@@ -18,17 +23,26 @@ class RegisterViewModel:ViewModel() {
         _isLoading.value = true
         val client = ApiConfig().getApiService().createAccount(username, email, password)
 
-        client.enqueue(object : Callback<RegisterResponse>{
+        client.enqueue(object : Callback<RegisteringResponse>{
             override fun onResponse(
-                call: Call<RegisterResponse>,
-                response: Response<RegisterResponse>
+                call: Call<RegisteringResponse>,
+                response: Response<RegisteringResponse>
             ) {
                 _isLoading.value = false
-                if (response.isSuccessful && response.body()?.message == "Account Created")
-                   Log.d(TAG,response.body()?.message.toString())
+                val responseBody = response.body()
+                Log.d(TAG, "onResponse: ${responseBody}")
+                if (response.isSuccessful && responseBody?.message == "Account Created"){
+                    Log.d(TAG, responseBody?.message.toString())
+                    _data.value = responseBody?.data
+
+                    Log.d(TAG, responseBody?.data?.idUser.toString())
+                    Log.d(TAG, responseBody?.data?.username ?: "username")
+                    Log.d(TAG, responseBody?.data?.email ?: "email")
+                    Log.d(TAG, responseBody?.data?.password ?: "password")
+                }
             }
 
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+            override fun onFailure(call: Call<RegisteringResponse>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG,t.message.toString())
             }

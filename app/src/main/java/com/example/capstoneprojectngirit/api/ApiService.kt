@@ -1,6 +1,7 @@
 package com.example.capstoneprojectngirit.api
 
-import com.example.capstoneprojectngirit.response.RegisterResponse
+import com.example.capstoneprojectngirit.response.LoginResponse
+import com.example.capstoneprojectngirit.response.RegisteringResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -13,5 +14,12 @@ interface ApiService {
         @Field("username") username:String,
         @Field("email") email:String,
         @Field("password") password:String
-    ):Call<RegisterResponse>
+    ):Call<RegisteringResponse>
+
+    @FormUrlEncoded
+    @POST("login")
+    fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ):Call<LoginResponse>
 }

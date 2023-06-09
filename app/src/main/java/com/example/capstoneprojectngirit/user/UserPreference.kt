@@ -8,7 +8,7 @@ class UserPreference (context:Context){
     fun setUser(user:UserModel){
         val prefEdit=preference.edit()
         prefEdit.putString(NAME,user.name)
-        prefEdit.putString(TOKEN,user.token)
+        prefEdit.putString(USER_ID,user.userId)
         prefEdit.putBoolean(LOGIN_STATE,user.isLogin)
         prefEdit.apply()
     }
@@ -16,7 +16,7 @@ class UserPreference (context:Context){
     fun getUser():UserModel{
         return UserModel(
             preference.getString(NAME,"")?:"",
-            preference.getString(TOKEN,"")?:"",
+            preference.getString(USER_ID,"")?:"",
             preference.getBoolean(LOGIN_STATE,false)
 
         )
@@ -25,7 +25,7 @@ class UserPreference (context:Context){
     fun logout(){
         val prefEdit = preference.edit()
         prefEdit.remove(NAME)
-        prefEdit.remove(TOKEN)
+        prefEdit.remove(USER_ID)
         prefEdit.putBoolean(LOGIN_STATE,false)
         prefEdit.apply()
     }
@@ -33,7 +33,7 @@ class UserPreference (context:Context){
     companion object {
         const val LOGIN_PREFERENCE = "login"
         const val NAME = "name"
-        const val TOKEN = "token"
+        const val USER_ID = "user_id"
         const val LOGIN_STATE = "login_state"
     }
 }

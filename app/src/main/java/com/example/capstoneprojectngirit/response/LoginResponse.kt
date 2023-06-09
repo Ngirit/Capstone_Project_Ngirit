@@ -7,11 +7,12 @@ data class LoginResponse(
 	@field:SerializedName("success")
 	val success: Boolean,
 
-	@field:SerializedName("message")
-	val message: String
-)
+	@field:SerializedName("userName")
+	val userName: String,
 
-data class LoginResult(
 	@field:SerializedName("message")
 	val message: String,
+
+	@field:SerializedName("userId")
+	val userId: String
 )
