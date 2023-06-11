@@ -111,14 +111,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:enabled="false"
         android:text="@string/cari_remokendasi"
         android:textStyle="bold"
         app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgKategori"
-        android:enabled="false"/>
+        app:layout_constraintTop_toBottomOf="@+id/rgKategori" />
 
     <TextView
         android:id="@+id/tvKategori"
@@ -149,14 +149,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/icons8_chicken_24"
+            android:text="@string/ayam"
             android:textColor="@color/light_red"
-            android:textStyle="bold"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvKategori"
-            android:text="@string/ayam" />
+            app:layout_constraintTop_toBottomOf="@+id/tvKategori" />
 
         <RadioButton
             android:id="@+id/rbIkan"
@@ -165,14 +165,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:drawableLeft="@drawable/icons8_fish_24"
+            android:text="@string/ikan"
             android:textColor="@color/light_red"
-            android:textStyle="bold"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rbAyam"
-            android:text="@string/ikan" />
+            app:layout_constraintTop_toBottomOf="@+id/rbAyam" />
 
         <RadioButton
             android:id="@+id/rbSayur"
@@ -181,14 +181,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:drawableLeft="@drawable/icons8_soup_24"
+            android:text="@string/sayur"
             android:textColor="@color/light_red"
-            android:textStyle="bold"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rbIkan"
-            android:text="@string/sayur" />
+            app:layout_constraintTop_toBottomOf="@+id/rbIkan" />
 
         <RadioButton
             android:id="@+id/rbMinuman"
@@ -198,16 +198,28 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
             android:drawableLeft="@drawable/icons8_drink_24"
+            android:text="@string/minuman"
             android:textColor="@color/light_red"
-            android:textStyle="bold"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rbSayur"
-            android:text="@string/minuman" />
+            app:layout_constraintTop_toBottomOf="@+id/rbSayur" />
 
     </RadioGroup>
+
+    <ProgressBar
+        android:id="@+id/pbMain"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

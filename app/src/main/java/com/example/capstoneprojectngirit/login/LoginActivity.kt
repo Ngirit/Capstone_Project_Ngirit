@@ -71,9 +71,10 @@ class LoginActivity : AppCompatActivity() {
                 }
                 loginViewModel.login.observe(this@LoginActivity){
                     binding.pbLogin.visibility = View.VISIBLE
-                    if (it!=null){
+                    if (it != null){
                         AlertDialog.Builder(this).apply {
                             setTitle(getString(R.string.login_success))
+                            setMessage("selamat datang")
                             setPositiveButton(getString(R.string.next)){_,_->
                                 val intent = Intent(context,MainActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -85,6 +86,8 @@ class LoginActivity : AppCompatActivity() {
 
                         }
                         saveUser(UserModel(it.userName,it.userId,true))
+
+
                     }
                 }
             }
@@ -106,7 +109,7 @@ class LoginActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 val password = s.toString().trim()
-                loginButton.isCheckable = password.length>=8
+                loginButton.isEnabled = password.length>=8
             }
 
         })
@@ -115,6 +118,8 @@ class LoginActivity : AppCompatActivity() {
     private fun buttonAction(){
         binding.btLogin.setOnClickListener {
             login()
+            //val intent=Intent(this,MainActivity::class.java)
+            //startActivity(intent)
             val methodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             methodManager.hideSoftInputFromWindow(it.windowToken,0)
         }

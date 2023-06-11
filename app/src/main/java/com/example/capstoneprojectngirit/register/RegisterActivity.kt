@@ -95,7 +95,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading:Boolean){
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.pbRegister.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun playAnimation(){

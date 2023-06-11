@@ -28,6 +28,8 @@ class LoginViewModel:ViewModel() {
                 _isLoading.value = false
                 if (response.isSuccessful && response.body()?.message == "Login sukses"){
                     Log.d(TAG, response.body()?.message.toString())
+                    Log.d(TAG,response.body()?.userId ?: "userId")
+                    Log.d(TAG,response.body()?.userName ?: "username")
                 }
 
             }
