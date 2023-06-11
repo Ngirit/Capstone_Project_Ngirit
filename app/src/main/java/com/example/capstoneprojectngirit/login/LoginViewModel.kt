@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.capstoneprojectngirit.api.ApiConfig
 import com.example.capstoneprojectngirit.response.LoginResponse
+import com.example.capstoneprojectngirit.response.LoginResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,15 +21,20 @@ class LoginViewModel:ViewModel() {
     private val _toastMessage = MutableLiveData<String>()
     val toastMessage: LiveData<String> = _toastMessage
 
+    private val loginResponse=LoginResponse(success = false, message = "", userId = "", userName = "")
+
     fun login(email:String, password:String){
         _isLoading.value = true
         val client =ApiConfig().getApiService().login(email, password)
         client.enqueue(object: Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 _isLoading.value = false
-                if (response.isSuccessful && response.body()?.message == "Login sukses"){
-                    Log.d(TAG, response.body()?.message.toString())
-                    Log.d(TAG,response.body()?.userId ?: "userId")
+                val responseBody = response.body()
+                Log.d(TAG, "onResponse: ${responseBody}")
+                if (response.isSuccessful){
+                    _login.value = loginResponse
+                    Log.d(TAG, responseBody?.message.toString())
+                    Log.d(TAG,response.body()?.userId.toString())
                     Log.d(TAG,response.body()?.userName ?: "username")
                 }
 

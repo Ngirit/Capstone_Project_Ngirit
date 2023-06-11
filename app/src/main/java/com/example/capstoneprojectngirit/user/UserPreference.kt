@@ -7,7 +7,7 @@ class UserPreference (context:Context){
 
     fun setUser(user:UserModel){
         val prefEdit=preference.edit()
-        prefEdit.putString(NAME,user.name)
+        prefEdit.putString(NAME,user.username)
         prefEdit.putString(USER_ID,user.userId)
         prefEdit.putBoolean(LOGIN_STATE,user.isLogin)
         prefEdit.apply()

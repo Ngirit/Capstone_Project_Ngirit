@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
 
+	//@field:SerializedName("loginResult")
+	//val loginResult: LoginResult,
+
 	@field:SerializedName("success")
 	val success: Boolean,
 
@@ -16,3 +19,13 @@ data class LoginResponse(
 	@field:SerializedName("userId")
 	val userId: String
 )
+
+data class LoginResult(
+	@field:SerializedName("userName")
+	val userName:String="",
+
+	@field:SerializedName("userId")
+	val userId:String="",
+)
+
+

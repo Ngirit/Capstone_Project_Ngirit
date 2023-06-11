@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             val userLogin = userPreference.getUser().isLogin
             Log.d(TAG,userLogin.toString())
             val intent = Intent(this@MainActivity,LoginActivity::class.java)
-            startActivity(intent/*,ActivityOptionsCompat.makeSceneTransitionAnimation(this@MainActivity as Activity).toBundle()*/)
+            startActivity(intent)
             finish()
         }
     }
