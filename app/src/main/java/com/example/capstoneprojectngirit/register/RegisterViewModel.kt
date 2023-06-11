@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.capstoneprojectngirit.api.ApiConfig
 import com.example.capstoneprojectngirit.response.Data
-import com.example.capstoneprojectngirit.response.RegisterResponseCadangan
 import com.example.capstoneprojectngirit.response.RegisteringResponse
 import retrofit2.Call
 import retrofit2.Callback
