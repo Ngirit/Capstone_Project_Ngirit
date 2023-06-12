@@ -1,6 +1,5 @@
 package com.example.capstoneprojectngirit.main
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,18 +8,14 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
-import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.capstoneprojectngirit.R
 import com.example.capstoneprojectngirit.databinding.ActivityMainBinding
-import com.example.capstoneprojectngirit.databinding.ActivityMapsBinding
 import com.example.capstoneprojectngirit.login.LoginActivity
 import com.example.capstoneprojectngirit.recomendation.RecomendationActivity
 import com.example.capstoneprojectngirit.user.UserPreference
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.ResponseBody.Companion.toResponseBody
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy(LazyThreadSafetyMode.PUBLICATION){
@@ -36,7 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         //setupViewModel()
         userValidation()
-        radioButtonAction()
+        buttonAction()
+        buttonSetup()
 
     }
 
@@ -56,19 +52,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun radioButtonAction(){
+    private fun buttonSetup(){
         binding.rgKategori.setOnCheckedChangeListener{group,checkedId->
             binding.btSearch.isEnabled=checkedId!=-1
         }
+    }
+
+    private fun buttonAction(){
+
         binding.btSearch.setOnClickListener {
-            val selectedId=binding.rgKategori.checkedRadioButtonId
-            if (selectedId!=-1){
-                val radioButton:RadioButton=findViewById(selectedId)
-                val selectedText = radioButton.text.toString().toRequestBody("text/plain".toMediaType())
-                //Toast.makeText(this,"$selectedText",Toast.LENGTH_SHORT).show()
-            }
+
+            val intent = Intent(this,RecomendationActivity::class.java)
+            startActivity(intent)
         }
 
+    }
+
+    private fun uploadRecomendation(){
+        val budget = binding.edBiaya.text.toString().toRequestBody("text/plain".toMediaType())
+        val location = binding.edLokasi.text.toString().toRequestBody("text/plain".toMediaType())
+        val selectedId=binding.rgKategori.checkedRadioButtonId
+        if (selectedId!=-1){
+            val radioButton:RadioButton=findViewById(selectedId)
+            val selectedText = radioButton.text.toString().toRequestBody("text/plain".toMediaType())
+            //Toast.makeText(this,"$selectedText",Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showLoading(isLoading:Boolean){

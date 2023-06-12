@@ -1,6 +1,7 @@
 package com.example.capstoneprojectngirit.login
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -37,12 +38,17 @@ class LoginViewModel:ViewModel() {
                     Log.d(TAG,response.body()?.userId.toString())
                     Log.d(TAG,response.body()?.userName ?: "username")
                 }
+                if(!response.isSuccessful){
+                    _toastMessage.value = response.message()
+                }
 
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 _isLoading.value = false
-                Log.e(TAG,t.message.toString())
+                _toastMessage.value = t.message
+                Log.d(TAG,t.message.toString())
+
             }
 
         })

@@ -30,7 +30,8 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBR9G3VpjDAfr-Z3l9KijYYw6uypIqu4Wg" />
+            android:value="AIzaSyC2gS9CjIP9z8i_FWJ1r4zcXN8UDAjUHwY"/><!--cadangan-->
+           <!-- android:value="AIzaSyBR9G3VpjDAfr-Z3l9KijYYw6uypIqu4Wg" />  utama -->
 
         <activity
             android:name=".maps.MapsActivity"
