@@ -1,3 +1,3 @@
-# Capstone_Project_Ngirit
+# Ngirit_App
 
 # tes
