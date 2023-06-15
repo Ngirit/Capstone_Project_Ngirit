@@ -15,6 +15,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 
@@ -51,10 +53,44 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         getLastLocation()
+
+
+
+            val markers = ArrayList<Marker>()
+
+            // Tambahkan marker sesuai dengan data Anda
+            mMap.addMarker(MarkerOptions().position(LatLng(-6.283989517,107.0717291)).title("Abe Steak"))
+            ?.let { markers.add(it) }
+           // mMap.addMarker(MarkerOptions().position(LatLng(-6.343375688,107.1541289)).title("Abuba Steak"))
+           //     ?.let { markers.add(it) }
+           // mMap.addMarker(MarkerOptions().position(LatLng(-33.0, 152.0)).title("Marker 2"))
+           //     ?.let { markers.add(it) }
+           // mMap.addMarker(MarkerOptions().position(LatLng(-35.0, 150.0)).title("Marker 3"))
+           //     ?.let { markers.add(it) }
+            // Tambahkan marker lainnya sesuai dengan kebutuhan
+
+            // Buat LatLngBounds.Builder
+            val builder = LatLngBounds.builder()
+            for (marker in markers) {
+                builder.include(marker.position)
+            }
+            val bounds = builder.build()
+
+            // Atur batas peta dan zoom yang sesuai
+            val padding = 5
+            val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+            mMap.moveCamera(cameraUpdate)
+
+
         // Add a marker in Sydney and move the camera
-       val sydney = LatLng(-34.0, 151.0)
+       /*val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        val cameraUpdate = CameraUpdateFactory.newLatLngZoom(sydney, 12f)
+        mMap.animateCamera(cameraUpdate)
+
+        */
     }
     private fun checkingPermission(permission:String):Boolean{
         return ContextCompat.checkSelfPermission(this,permission)== PackageManager

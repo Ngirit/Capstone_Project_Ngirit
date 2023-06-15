@@ -12,10 +12,15 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.capstoneprojectngirit.R
 import com.example.capstoneprojectngirit.databinding.ActivityMainBinding
 import com.example.capstoneprojectngirit.login.LoginActivity
+import com.example.capstoneprojectngirit.ml.ModelCapstone
 import com.example.capstoneprojectngirit.recomendation.RecomendationActivity
 import com.example.capstoneprojectngirit.user.UserPreference
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.nio.ByteBuffer
+
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy(LazyThreadSafetyMode.PUBLICATION){
@@ -23,11 +28,14 @@ class MainActivity : AppCompatActivity() {
     }
     private lateinit var mainViewModel: MainViewModel
     private lateinit var userPreference: UserPreference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         userPreference = UserPreference(this)
+
+
 
         //setupViewModel()
         userValidation()
@@ -69,8 +77,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun uploadRecomendation(){
-        val budget = binding.edBiaya.text.toString().toRequestBody("text/plain".toMediaType())
-        val location = binding.edLokasi.text.toString().toRequestBody("text/plain".toMediaType())
+        val budget = binding.edBiaya.text.toString()//.toRequestBody("text/plain".toMediaType())
+        val location = binding.edLokasi.text.toString()//.toRequestBody("text/plain".toMediaType())
+        //val outputList = modelCapstone.inference(budget, location, selectedId)
         val selectedId=binding.rgKategori.checkedRadioButtonId
         if (selectedId!=-1){
             val radioButton:RadioButton=findViewById(selectedId)

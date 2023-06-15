@@ -149,7 +149,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/icons8_chicken_24"
-            android:text="@string/ayam"
+            android:text="@string/daging"
             android:textColor="@color/light_red"
             android:textSize="16sp"
             android:textStyle="bold"

@@ -3,7 +3,6 @@ package com.example.capstoneprojectngirit.recomendation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.capstoneprojectngirit.databinding.ItemRecomendationBinding
 import com.example.capstoneprojectngirit.dummy.DummyListRecom
 
@@ -12,9 +11,11 @@ class RecomendationAdapter : RecyclerView.Adapter<RecomendationAdapter.RecomView
         class RecomViewHolder(private val binding:ItemRecomendationBinding):RecyclerView.ViewHolder(binding.root){
             fun bind(recom: DummyListRecom){
                 binding.apply {
-                    Glide.with(itemView.context).load(recom.photoUrl)
+                    //Glide.with(itemView.context).load(recom.photoUrl)
                     tvFoodName.text=recom.name
-                    tvDesc.text = recom.description
+                    tvDesc.text = recom.location
+                    tvPrice.text = recom.price
+                    tvRate.text = recom.rating
                 }
             }
      }
@@ -30,5 +31,11 @@ class RecomendationAdapter : RecyclerView.Adapter<RecomendationAdapter.RecomView
 
     override fun onBindViewHolder(holder: RecomViewHolder, position: Int) {
         holder.bind(recom[position])
+    }
+
+    fun updateData(data: List<DummyListRecom>) {
+        recom.clear()
+        recom.addAll(data)
+        notifyDataSetChanged()
     }
 }

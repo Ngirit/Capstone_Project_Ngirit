@@ -13,7 +13,7 @@
     <string name="warning_register">Isi Data Diri Dengan Lengkap</string>
     <string name="cari_remokendasi">Cari rekomendasi</string>
     <string name="kategori">Kategori</string>
-    <string name="ayam"> Ayam</string>
+    <string name="daging"> Daging</string>
     <string name="ikan"> Ikan</string>
     <string name="sayur"> Sayur</string>
     <string name="minuman">Minuman</string>
@@ -31,4 +31,6 @@
     <string name="password_alert">Password minimal 8 karakter</string>
     <string name="next">Next</string>
     <string name="login_success">Login sukses</string>
+    <string name="price">Harga</string>
+    <string name="rating">Rating</string>
 </resources>

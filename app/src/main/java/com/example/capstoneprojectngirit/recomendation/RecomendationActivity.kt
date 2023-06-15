@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.capstoneprojectngirit.R
 import com.example.capstoneprojectngirit.databinding.ActivityRecomendationBinding
+import com.example.capstoneprojectngirit.dummy.DummyListRecom
 import com.example.capstoneprojectngirit.maps.MapsActivity
 
 class RecomendationActivity : AppCompatActivity() {
@@ -39,5 +40,57 @@ class RecomendationActivity : AppCompatActivity() {
             val intent=Intent(this@RecomendationActivity,MapsActivity::class.java)
             startActivity(intent)
         }
+        val newData = listOf(
+            DummyListRecom(
+                name = "Sirloin Steak Beef Pops",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 25000.0",
+                rating = "4.1"
+
+            ),
+            DummyListRecom(
+                name ="Tenderloin Steak Beef Pop",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 66000.0",
+                rating = "4.1"
+
+            ),
+            DummyListRecom(
+                name ="Chicken Drumstick",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 25000.0",
+                rating = "4.1"
+
+            ),
+            DummyListRecom(
+                name ="Beef Steak",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 42000.0",
+                rating = "4.1"
+
+            ),
+            DummyListRecom(
+                name ="Chicken Steak Geprek",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 25000.0",
+                rating = "4.1"
+
+            ),
+            DummyListRecom(
+                name ="Tenderloin Crispy",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 28000.0",
+                rating = "4.1"
+
+            ),
+            DummyListRecom(
+                name ="Chicken Steak Pops",
+                location = "Abe Steak, Cibubur",
+                price = "Rp 20000.0",
+                rating = "4.1"
+
+            ),
+        )
+        recomAdapter.updateData(newData)
     }
 }
