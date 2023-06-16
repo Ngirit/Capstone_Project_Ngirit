@@ -14,6 +14,8 @@ This project was created with:
 ## Feature
 Features included in the application are:
 - Login and Registration User
+- Logout User
+- Display recommendations in list form
 - Search for food recommendations based on user budget and location
 - Display the restaurant location on a map
 
