@@ -1,7 +1,7 @@
 # Ngirit_App
 
 ## About
-Ngirit is an application used to provide food recommendations based on the user's budget and location.
+Ngirit is an application used to provide food recommendations based on the user's budget and location. This project is a graduation requirement in the Bangkit Academy 2023 program as a Mobile Developer Learning Path.
 
 ## Technologies
 This project was created with:
