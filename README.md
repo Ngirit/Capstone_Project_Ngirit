@@ -11,7 +11,7 @@ This project was created with:
 - Retrofit
 - Using API
 
-## Feature
+## Features
 Features included in the application are:
 - Login and Registration User
 - Logout User
